@@ -1,22 +1,24 @@
 from flask import Flask, render_template, request, session
-from classes.Book import Book
+from parte_2.classes.Book import Book
+filename = "parte_2/data/"
 from datafile import filename
-from classes.Member import Member
-from classes.Publisher import Publisher
-from classes.Requisition import Requisition
-from classes.userlogin import Userlogin
-from subs.apps_book import apps_book
-from subs.apps_gform import apps_gform 
-from subs.apps_subform import apps_subform 
-from subs.apps_userlogin import apps_userlogin
+from parte_2.classes.Member import Member
+from parte_2.classes.Publisher import Publisher
+from parte_2.classes.Requisition import Requisition
+from parte_2.classes.userlogin import UserLogin
+from parte_2.subs.apps_book import apps_book
+from parte_2.subs.apps_gform import apps_gform 
+from parte_2.subs.apps_subform import apps_subform 
+from parte_2.subs.apps_userlogin import apps_userlogin
 
 app = Flask(__name__)
 
-Book.read(filename + 'library.db')
-Member.read(filename + 'library.db')
-Publisher.read(filename + 'library.db')
-Requisition.read(filename + 'library.db')
-Userlogin.read(filename + 'library.db')
+Book.read("parte_2/data/library.db")
+Member.read("parte_2/data/library.db")
+Publisher.read("parte_2/data/library.db")
+Requisition.read("parte_2/data/library.db")
+UserLogin.read("parte_2/data/library.db")
+
 app.secret_key = 'BAD_SECRET_KEY'
 @app.route("/")
 def index():
@@ -32,7 +34,7 @@ def logoff():
 def chklogin():
     user = request.form["user"]
     password = request.form["password"]
-    resul = Userlogin.chk_password(user, password)
+    resul = UserLogin.chk_password(user, password)
     if resul == "Valid":
         session["user"] = user
         return render_template("index.html", ulogin=session.get("user"))
@@ -46,7 +48,7 @@ def gform(cname):
 @app.route("/subform/<cname>", methods=["post","get"])
 def subform(cname):
     return apps_subform(cname)
-@app.route("/Userlogin", methods=["post","get"])
+@app.route("/UserLogin", methods=["post","get"])
 def userlogin():
     return apps_userlogin()
 if __name__ == '__main__':

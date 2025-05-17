@@ -5,10 +5,10 @@ Created on Thu Apr  3 19:28:40 2025
 @author: Utilizador
 """
 
-from classes.gclass import Gclass
+from parte_2.classes.gclass import Gclass
 
 class Book(Gclass):
-    
+
     obj = dict()
     lst = list()
     pos = 0
@@ -19,56 +19,56 @@ class Book(Gclass):
     header = 'Books'
     # field description for use in, for example, input form
     des = ['Book id','Title','Author','Genre','Publisher id']
-    
-    
+
+
     def __init__(self, book_id, title, author, genre, publisher_id):
         super().__init__()
-        
+
         book_id = Book.get_id(book_id)
         self._book_id = book_id
         self._title = title
         self._author = author
         self._genre = genre
         self._publisher_id = publisher_id
-        
+
         Book.obj[book_id] = self
         # Add the id to the list of object ids
         Book.lst.append(book_id)
-        
+
     @property
     def book_id(self):
         return self._book_id
-    
+
     @property
     def id(self):
         return self._book_id
 
-    
+
     @book_id.setter
     def book_id(self, book_id):
         self._book_id = book_id
-            
+
     @property
     def title(self):
         return self._title
     @title.setter
     def title(self, title):
         self._title = title
-        
+
     @property
     def author(self):
         return self._author
     @author.setter
     def author(self, author):
         self._author = author
-        
+
     @property
     def genre(self):
         return self._genre
     @genre.setter
     def genre(self, genre):
         self._genre = genre
-        
+
     @property
     def publisher_id(self):
         return self._publisher_id

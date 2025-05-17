@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, session
-from classes.Book import Book
+from parte_2.classes.Book import Book
 from datafile import filename
-from classes.Member import Member
-from classes.Publisher import Publisher
-from classes.Requisition import Requisition
-from classes.userlogin import Userlogin
+from parte_2.classes.Member import Member
+from parte_2.classes.Publisher import Publisher
+from parte_2.classes.Requisition import Requisition
+from parte_2.classes.userlogin import UserLogin
 
 prev_option = ""
 
@@ -90,7 +90,7 @@ def apps_subform(cname=""):
                 obj[cl.att[i]] = ""
         else:
             for i in range(1, len(sbl.att)):
-                    headers.append(sbl.att[i][1:])        
+                    headers.append(sbl.att[i][1:])
             lines = sbl.getlines(sbl.att[1],getattr(obj, cl.att[0]))
             for line in lines:
                 objl.append(sbl.obj[line])
