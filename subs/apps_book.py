@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session
-from parte_2.classes.Book import Book
+from classes.Book import Book
 
 prev_option = ""
 

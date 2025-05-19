@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, session
-from parte_2.classes.Member import Member
-from parte_2.classes.Publisher import Publisher
-from parte_2.classes.Requisition import Requisition
-from parte_2.classes.userlogin import UserLogin
+from classes.Member import Member
+from classes.Publisher import Publisher
+from classes.Requisition import Requisition
+from classes.userlogin import UserLogin
 
 prev_option = ""
 

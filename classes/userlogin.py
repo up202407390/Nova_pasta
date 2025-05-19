@@ -6,7 +6,7 @@
 # import sys
 import bcrypt
 # Import the generic class
-from parte_2.classes.gclass import Gclass
+from classes.gclass import Gclass
 
 
 class UserLogin(Gclass):

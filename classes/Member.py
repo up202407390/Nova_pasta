@@ -5,7 +5,7 @@ Created on Thu Apr  3 19:40:36 2025
 @author: Utilizador
 """
 
-from parte_2.classes.gclass import Gclass
+from classes.gclass import Gclass
 
 class Member(Gclass):
 

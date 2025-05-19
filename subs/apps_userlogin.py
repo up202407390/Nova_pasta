@@ -1,14 +1,18 @@
 
 from flask import Flask, render_template, request, session
-from parte_2.classes.userlogin import UserLogin
+from classes.userlogin import UserLogin
 
 prev_option = ""
 
 def apps_userlogin():
+    print(">>> apps_userlogin foi chamada com sucesso!")
+
     global prev_option
     ulogin=session.get("user")
     user_id = UserLogin.get_user_id(ulogin)
     if (ulogin != None):
+        print(">>> Utilizador autenticado:", ulogin)
+
         group = UserLogin.obj[user_id].usergroup
         if group != "admin":
             UserLogin.current(user_id)
@@ -60,8 +64,12 @@ def apps_userlogin():
             user = obj.user
             usergroup = obj.usergroup
             password = ""
-        return render_template("UserLogin.html", butshow=butshow, butedit=butedit, user=user,usergroup = usergroup,password=password, ulogin=session.get("user"), group=group)
+        return render_template("userlogin.html", butshow=butshow, butedit=butedit, user=user,usergroup = usergroup,password=password, ulogin=session.get("user"), group=group)
     else:
+        print(">>> Vai renderizar userlogin.html")
+
         return render_template("index.html", ulogin=ulogin)
 # -*- coding: utf-8 -*-
+print("Função apps_userlogin carregada com sucesso!")
+
 

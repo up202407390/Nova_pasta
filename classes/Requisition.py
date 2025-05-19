@@ -6,7 +6,7 @@ Created on Thu Apr  3 19:40:39 2025
 """
 
 
-from parte_2.classes.gclass import Gclass
+from classes.gclass import Gclass
 
 class Requisition(Gclass):
 
