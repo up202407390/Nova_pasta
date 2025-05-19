@@ -148,6 +148,8 @@ class Gclass:
     def getatlist(cls, att):
         return [getattr(obj, att) for obj in list(cls.obj.values())]
     # Read objects from db file
+
+
     @classmethod
     def read(cls, path = ''):
         cls.obj = dict()
@@ -168,6 +170,7 @@ class Gclass:
         except BaseException as err:
             print(f"Error in read method:\n{err}\n{type(err)}")
             sys.exit()
+    
     # Instance method to obtain object info
     def __str__(self):
         strprint = "f'"
