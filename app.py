@@ -48,6 +48,12 @@ def gform(cname):
 @app.route("/subform/<cname>", methods=["post","get"])
 def subform(cname):
     return apps_subform(cname)
+@app.route("/plot", methods=["post","get"])
+def plot():
+    return apps_plot()
+@app.route("/plotly", methods=["post","get"])
+def plotly():
+    return apps_plotly()
 @app.route("/UserLogin", methods=["post","get"])
 def userlogin():
     return apps_userlogin()
