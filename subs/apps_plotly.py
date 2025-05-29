@@ -6,7 +6,8 @@ import plotly.express as px
 def apps_plotly():
     # Conecta ao banco da biblioteca
     engine = create_engine('sqlite:///data/library.db')
-    df_book = pd.read_sql_table('Book', con=engine)
+    df_book = pd.read_sql_query('SELECT * FROM Book', con=engine)
+
 
     # Agrupa por género e conta o número de livros por género
     result = df_book.groupby('genre').size()

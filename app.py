@@ -10,6 +10,9 @@ from subs.apps_book import apps_book
 from subs.apps_gform import apps_gform 
 from subs.apps_subform import apps_subform 
 from subs.apps_userlogin import apps_userlogin
+from subs.apps_plot import apps_plot
+from subs.apps_plotly import apps_plotly
+
 
 app = Flask(__name__)
 

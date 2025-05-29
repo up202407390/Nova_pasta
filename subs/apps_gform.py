@@ -32,9 +32,10 @@ def apps_gform(cname=''):
                 butedit = "enabled"
             elif option == "delete":
                 obj = cl.current()
-                cl.remove(obj.id)
+                cl.remove(getattr(obj, cl.att[0]))
                 if not cl.previous():
                     cl.first()
+
             elif option == "insert":
                 butshow = "disabled"
                 butedit = "enabled"

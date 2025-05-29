@@ -41,7 +41,8 @@ class Gclass:
     # Class method to return the list of object id's having an attribute 'att' = 'value'
     @classmethod
     def getlines(cls, att, value):
-        return [obj.id for obj in list(cls.obj.values()) if getattr(obj, att) == value]
+        return [getattr(obj, cls.att[0]) for obj in list(cls.obj.values()) if getattr(obj, att) == value]
+
     # Class methods to iterate (forward and backward) through the class objects
     @classmethod
     def nextrec(cls):

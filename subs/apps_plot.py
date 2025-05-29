@@ -11,7 +11,8 @@ import base64
 def apps_plot():
     # Creates a pandas dataframe with the orderproduct table data
     engine = create_engine('sqlite:///' + filename + 'library.db')
-    df_Book = pd.read_sql('Book', con=engine)
+    df_Book = pd.read_sql_query('SELECT * FROM Book', con=engine)
+
     # Uses groupby to obtain the total quantity order by product id
     result = df_Book.groupby('genre').size()
    
